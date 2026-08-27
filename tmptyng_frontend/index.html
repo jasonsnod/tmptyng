@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TMPTYNG</title>
+    <meta name="description" content="TMPTYNG is an audio-visual project exploring sound and image through real-time process.">
+    <meta property="og:title" content="TMPTYNG">
+    <meta property="og:description" content="TMPTYNG is an audio-visual project exploring sound and image through real-time process.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+    <div id="cursor" class="cursor" aria-hidden="true"></div>
+    <div id="cursor-small" class="cursor-small" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="header-row">
+            <a class="logo" href="/">TMPTYNG</a>
+            <nav aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="#">.VISUALS</a></li>
+                    <li><a href="#">.COMPOSITION</a></li>
+                    <li><a href="#">.EVENTS</a></li>
+                    <li><a href="#">.PRINTS</a></li>
+                    <li><a href="#">.ABOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="intro" class="intro">
+        <div class="intro-text">
+            <p class="intro-line"><span>TMPTYNG</span></p>
+            <p class="intro-line intro-line--sub"><span>MUSIC &amp; VISUALS</span></p>
+        </div>
+        <div class="intro-bar">
+            <div id="intro-bar-fill" class="intro-bar-fill"></div>
+        </div>
+    </div>
+
+    <main class="hero">
+        <div class="hero-media" aria-hidden="true">
+            <!-- Replace with: <video autoplay muted loop playsinline src="..."></video> -->
+        </div>
+        <div class="hero-scrim"></div>
+
+        <div class="hero-info">
+            <div class="hero-heading">
+                <h1 class="hero-index">
+                    <span id="hero-index-current">01</span> - <span id="hero-index-total">05</span>
+                </h1>
+                <div class="hero-title-wrap">
+                    <h2 id="hero-title" class="hero-title">BIRTH AND CARNAGE</h2>
+                </div>
+            </div>
+
+            <div class="filmstrip" id="filmstrip">
+                <div class="filmstrip-playhead" id="filmstrip-playhead"></div>
+                <button class="filmstrip-item is-active" type="button" data-index="0" data-title="BIRTH AND CARNAGE">
+                    <span class="filmstrip-label">01</span>
+                </button>
+                <button class="filmstrip-item" type="button" data-index="1" data-title="THE SPACE BETWEEN">
+                    <span class="filmstrip-label">02</span>
+                </button>
+                <button class="filmstrip-item" type="button" data-index="2" data-title="REIGNING CHAMP">
+                    <span class="filmstrip-label">03</span>
+                </button>
+                <button class="filmstrip-item" type="button" data-index="3" data-title="MASTER OF FORM">
+                    <span class="filmstrip-label">04</span>
+                </button>
+                <button class="filmstrip-item" type="button" data-index="4" data-title="BETTER TOGETHER">
+                    <span class="filmstrip-label">05</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
