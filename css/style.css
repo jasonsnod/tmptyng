@@ -368,6 +368,11 @@ button {
     gap: 1.4em;
 }
 
+.side-panel-spacer {
+    flex: none;
+    height: 0;
+}
+
 .side-panel p {
     margin: 0;
     color: var(--fg);

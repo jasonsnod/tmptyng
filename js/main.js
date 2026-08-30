@@ -27,6 +27,30 @@
         });
     }
 
+    /* ---- Side panel scroll spacer ---- */
+    let sidePanel = document.querySelector(".side-panel");
+    let sidePanelInner = document.querySelector(".side-panel-inner");
+    let sidePanelSpacer = document.getElementById("side-panel-spacer");
+
+    function sizeSidePanelSpacer() {
+        if (!sidePanel || !sidePanelInner || !sidePanelSpacer) return;
+
+        let paragraphs = sidePanelInner.querySelectorAll("p");
+        if (!paragraphs.length) return;
+
+        let lastParagraph = paragraphs[paragraphs.length - 1];
+        let panelStyle = window.getComputedStyle(sidePanel);
+        let gap = parseFloat(window.getComputedStyle(sidePanelInner).rowGap) || 0;
+        let paddingBottom = parseFloat(panelStyle.paddingBottom) || 0;
+
+        let available = sidePanel.clientHeight - lastParagraph.offsetHeight - gap - paddingBottom;
+        sidePanelSpacer.style.height = Math.max(available, 0) + "px";
+    }
+
+    sizeSidePanelSpacer();
+    window.addEventListener("load", sizeSidePanelSpacer);
+    window.addEventListener("resize", sizeSidePanelSpacer);
+
     /* ---- Intro sequence ---- */
     let barFill = document.getElementById("intro-bar-fill");
 
