@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TMPTYNG</title>
+    <title>tmptyng</title>
     <meta name="description" content="TMPTYNG is an audio-visual project exploring sound and image through real-time process.">
     <meta property="og:title" content="TMPTYNG">
     <meta property="og:description" content="TMPTYNG is an audio-visual project exploring sound and image through real-time process.">
@@ -13,28 +13,35 @@
 </head>
 <body class="is-loading">
 
+    <div class="bg-shader" aria-hidden="true"></div>
+
     <div id="cursor" class="cursor" aria-hidden="true"></div>
     <div id="cursor-small" class="cursor-small" aria-hidden="true"></div>
 
     <header class="site-header">
         <div class="header-row">
-            <a class="logo" href="/">TMPTYNG</a>
-            <nav aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="#">.VISUALS</a></li>
-                    <li><a href="#">.COMPOSITION</a></li>
-                    <li><a href="#">.EVENTS</a></li>
-                    <li><a href="#">.PRINTS</a></li>
-                    <li><a href="#">.ABOUT</a></li>
-                </ul>
+            <a class="logo" href="/">tmptyng</a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <div class="nav-collapse" id="nav-collapse">
+                    <ul class="nav-list">
+                        <li><a href="#">visuals</a></li>
+                        <li><a href="#">composition</a></li>
+                        <li><a href="#">events</a></li>
+                        <li><a href="#">prints</a></li>
+                        <li><a href="#">about</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-collapse" aria-label="Toggle navigation menu">
+                    <span class="nav-toggle-mark">t</span>
+                </button>
             </nav>
         </div>
     </header>
 
     <div id="intro" class="intro">
         <div class="intro-text">
-            <p class="intro-line"><span>TMPTYNG</span></p>
-            <p class="intro-line intro-line--sub"><span>MUSIC &amp; VISUALS</span></p>
+            <p class="intro-line"><span>tmptyng</span></p>
+            <p class="intro-line intro-line--sub"><span>music : writings : visuals : projects</span></p>
         </div>
         <div class="intro-bar">
             <div id="intro-bar-fill" class="intro-bar-fill"></div>
@@ -42,40 +49,17 @@
     </div>
 
     <main class="hero">
-        <div class="hero-media" aria-hidden="true">
-            <!-- Replace with: <video autoplay muted loop playsinline src="..."></video> -->
-        </div>
-        <div class="hero-scrim"></div>
+        <!-- Optional: <video autoplay muted loop playsinline src="..."> can go here, above the site background -->
 
-        <div class="hero-info">
-            <div class="hero-heading">
-                <h1 class="hero-index">
-                    <span id="hero-index-current">01</span> - <span id="hero-index-total">05</span>
-                </h1>
-                <div class="hero-title-wrap">
-                    <h2 id="hero-title" class="hero-title">BIRTH AND CARNAGE</h2>
-                </div>
+        <aside class="side-panel" aria-label="About tmptyng">
+            <div class="side-panel-inner">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
             </div>
-
-            <div class="filmstrip" id="filmstrip">
-                <div class="filmstrip-playhead" id="filmstrip-playhead"></div>
-                <button class="filmstrip-item is-active" type="button" data-index="0" data-title="BIRTH AND CARNAGE">
-                    <span class="filmstrip-label">01</span>
-                </button>
-                <button class="filmstrip-item" type="button" data-index="1" data-title="THE SPACE BETWEEN">
-                    <span class="filmstrip-label">02</span>
-                </button>
-                <button class="filmstrip-item" type="button" data-index="2" data-title="REIGNING CHAMP">
-                    <span class="filmstrip-label">03</span>
-                </button>
-                <button class="filmstrip-item" type="button" data-index="3" data-title="MASTER OF FORM">
-                    <span class="filmstrip-label">04</span>
-                </button>
-                <button class="filmstrip-item" type="button" data-index="4" data-title="BETTER TOGETHER">
-                    <span class="filmstrip-label">05</span>
-                </button>
-            </div>
-        </div>
+        </aside>
     </main>
 
     <script src="js/main.js"></script>

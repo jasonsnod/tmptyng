@@ -2,21 +2,33 @@
     "use strict";
 
     /* ---- Custom cursor ---- */
-    var cursor = document.getElementById("cursor");
-    var cursorSmall = document.getElementById("cursor-small");
-    var hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    let cursor = document.getElementById("cursor");
+    let cursorSmall = document.getElementById("cursor-small");
+    let hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
     if (hasFinePointer && cursor && cursorSmall) {
         window.addEventListener("mousemove", function (e) {
-            var x = e.clientX + "px";
-            var y = e.clientY + "px";
+            let x = e.clientX + "px";
+            let y = e.clientY + "px";
             cursor.style.transform = "translate3d(" + x + ", " + y + ", 0) translate(-50%, -50%)";
             cursorSmall.style.transform = "translate3d(" + x + ", " + y + ", 0) translate(-50%, -50%)";
         });
     }
 
+    /* ---- Nav toggle ---- */
+    let navToggle = document.getElementById("nav-toggle");
+    let navCollapse = document.getElementById("nav-collapse");
+
+    if (navToggle && navCollapse) {
+        navToggle.addEventListener("click", function () {
+            let isOpen = navToggle.getAttribute("aria-expanded") === "true";
+            navToggle.setAttribute("aria-expanded", String(!isOpen));
+            navCollapse.classList.toggle("is-open", !isOpen);
+        });
+    }
+
     /* ---- Intro sequence ---- */
-    var barFill = document.getElementById("intro-bar-fill");
+    let barFill = document.getElementById("intro-bar-fill");
 
     window.requestAnimationFrame(function () {
         window.requestAnimationFrame(function () {
@@ -29,14 +41,11 @@
     }, 1400);
 
     /* ---- Filmstrip / hero title cycle ---- */
-    var items = Array.prototype.slice.call(document.querySelectorAll(".filmstrip-item"));
-    var playhead = document.getElementById("filmstrip-playhead");
-    var titleEl = document.getElementById("hero-title");
-    var indexEl = document.getElementById("hero-index-current");
+    let items = Array.prototype.slice.call(document.querySelectorAll(".filmstrip-item"));
+    let playhead = document.getElementById("filmstrip-playhead");
+    let titleEl = document.getElementById("hero-title");
 
-    var activeIndex = 0;
-    var cycleTimer = null;
-    var CYCLE_MS = 4500;
+    let activeIndex = 0;
 
     function setActive(nextIndex) {
         if (nextIndex === activeIndex || !items[nextIndex]) return;
@@ -47,12 +56,8 @@
         });
 
         if (playhead) {
-            var pct = (activeIndex / items.length) * 100;
+            let pct = (activeIndex / items.length) * 100;
             playhead.style.left = pct + "%";
-        }
-
-        if (indexEl) {
-            indexEl.textContent = String(activeIndex + 1).padStart(2, "0");
         }
 
         if (titleEl) {
@@ -64,28 +69,9 @@
         }
     }
 
-    function startCycle() {
-        stopCycle();
-        cycleTimer = window.setInterval(function () {
-            setActive((activeIndex + 1) % items.length);
-        }, CYCLE_MS);
-    }
-
-    function stopCycle() {
-        if (cycleTimer) {
-            window.clearInterval(cycleTimer);
-            cycleTimer = null;
-        }
-    }
-
     items.forEach(function (item) {
         item.addEventListener("click", function () {
             setActive(Number(item.dataset.index));
-            startCycle();
         });
     });
-
-    if (items.length) {
-        startCycle();
-    }
 })();
