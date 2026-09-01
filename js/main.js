@@ -98,4 +98,53 @@
             setActive(Number(item.dataset.index));
         });
     });
+
+    /* ---- Writings rolodex ---- */
+    let rolodex = document.getElementById("rolodex");
+    let rolodexCards = Array.prototype.slice.call(document.querySelectorAll(".rolodex-card"));
+    let postOverlay = document.getElementById("post-overlay");
+    let postPanelScroll = document.getElementById("post-panel-scroll");
+    let postClose = document.getElementById("post-close");
+
+    function openPost(card) {
+        let template = card.querySelector("template");
+        if (!template || !postPanelScroll || !postOverlay || !rolodex) return;
+
+        postPanelScroll.innerHTML = "";
+        postPanelScroll.appendChild(template.content.cloneNode(true));
+        postPanelScroll.scrollTop = 0;
+
+        rolodex.classList.add("is-hidden");
+        postOverlay.classList.add("is-open");
+        postOverlay.setAttribute("aria-hidden", "false");
+    }
+
+    function closePost() {
+        if (!postOverlay || !rolodex) return;
+        postOverlay.classList.remove("is-open");
+        postOverlay.setAttribute("aria-hidden", "true");
+        rolodex.classList.remove("is-hidden");
+    }
+
+    rolodexCards.forEach(function (card) {
+        card.addEventListener("click", function () {
+            openPost(card);
+        });
+    });
+
+    if (postClose) {
+        postClose.addEventListener("click", closePost);
+    }
+
+    if (postOverlay) {
+        postOverlay.addEventListener("click", function (e) {
+            if (e.target === postOverlay) closePost();
+        });
+    }
+
+    window.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && postOverlay && postOverlay.classList.contains("is-open")) {
+            closePost();
+        }
+    });
 })();
